@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  color: #023e8a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+body.dark {
+  background: linear-gradient(135deg, #03045e, #023e8a);
+  color: #caf0f8;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+}
+
+.controls, .scoreboard {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+select, input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 15px;
+}
+
+.box {
+  font-size: 2.5rem;
+  background: #48cae4;
+  border: 3px solid #0077b6;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.box:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #90e0ef;
+}
+
+.box:disabled {
+  background: #caf0f8;
+  cursor: not-allowed;
+}
+
+.box.win {
+  background: #00b4d8 !important;
+  color: #fff;
+  border-color: #0077b6;
+}
+
+#reset-btn, #newGame-btn {
+  margin: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  background: #0077b6;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+#reset-btn:hover, #newGame-btn:hover {
+  background: #023e8a;
+}
+
+#msg {
+  font-size: 2rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.msg-container {
+  padding: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+.scoreboard p {
+  font-size: 1.1rem;
+  background: rgba(255,255,255,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+@media(max-width: 600px) {
+  .game {
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
+  }
+  .box {
+    font-size: 2rem;
+  }
+}
